@@ -15,6 +15,6 @@ const createSVG = ml => {
   return range.extractContents();
 };
 
-const create = (ml, type) => type === 'svg' ? createSVG(ml) : createHTML(ml);
+const create = (ml, type) => (type === 'svg' ? createSVG : createHTML)(ml);
 
 module.exports = create;
