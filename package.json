@@ -1,0 +1,51 @@
+{
+  "name": "@webreflection/create-content",
+  "version": "0.0.0",
+  "description": "Essential @ungap/create-content for modern browsers",
+  "main": "./cjs/index.js",
+  "scripts": {
+    "build": "npm run cjs && npm run rollup:es && npm run rollup:index && npm run fix:default && npm run test",
+    "cjs": "ascjs --no-default esm cjs",
+    "rollup:es": "rollup --config rollup/es.config.js && sed -i.bck 's/^var /self./' es.js && rm -rf es.js.bck",
+    "rollup:index": "rollup --config rollup/index.config.js",
+    "fix:default": "sed -i 's/({})/({}).default/' index.js && sed -i 's/({})/({}).default/' es.js",
+    "coveralls": "c8 report --reporter=text-lcov | coveralls",
+    "test": "c8 node test/index.js"
+  },
+  "keywords": [
+    "create",
+    "content",
+    "essential",
+    "html",
+    "svg"
+  ],
+  "author": "Andrea Giammarchi",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^13.1.1",
+    "ascjs": "^5.0.1",
+    "c8": "^7.10.0",
+    "coveralls": "^3.1.1",
+    "linkedom": "^0.13.0",
+    "rollup": "^2.61.1",
+    "rollup-plugin-terser": "^7.0.2"
+  },
+  "module": "./esm/index.js",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./esm/index.js",
+      "default": "./cjs/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "unpkg": "es.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WebReflection/create-content.git"
+  },
+  "bugs": {
+    "url": "https://github.com/WebReflection/create-content/issues"
+  },
+  "homepage": "https://github.com/WebReflection/create-content#readme"
+}

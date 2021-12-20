@@ -1,0 +1,2 @@
+self.createContent=function(t){"use strict";
+/*! (c) Andrea Giammarchi - ISC */const e=document.createElementNS("http://www.w3.org/2000/svg","svg"),n=document.createRange();return t.default=(t,r)=>"svg"===r?(t=>(e.innerHTML=t,n.setStartBefore(e.firstChild),n.setEndAfter(e.lastChild),n.extractContents()))(t):(t=>{const e=document.createElement("template");return e.innerHTML=t,e.content})(t),t}({}).default;
