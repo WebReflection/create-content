@@ -1,6 +1,6 @@
 {
   "name": "@webreflection/create-content",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Essential @ungap/create-content for modern browsers",
   "main": "./cjs/index.js",
   "scripts": {
